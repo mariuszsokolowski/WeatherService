@@ -66,3 +66,5 @@ C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Web\bin\Debug\ne
 C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Web\bin\Debug\net6.0\WeatherService.Data.dll
 C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Web\bin\Debug\net6.0\WeatherService.Data.pdb
 C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Web\obj\Debug\net6.0\WeatherService.Web.csproj.CopyComplete
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Web\bin\Debug\net6.0\Humanizer.dll
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Web\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
