@@ -10,8 +10,8 @@ namespace WeatherService.Data.Services.WeatherServices
     public interface IWeatherService
     {
         /// <summary>
-        /// Get data from third-part Weather web service
+        /// Get data from third-part weather API
         /// </summary>
-        public Task<WeatherApiResponseModel> Get(WeatherApiRequestModel city);
+        public Task<ForecastData> GetAsync(WeatherApiRequestModel city);
     }
 }

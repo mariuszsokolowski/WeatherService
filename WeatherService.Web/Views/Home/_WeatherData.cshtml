@@ -1,0 +1,66 @@
+﻿@model WeatherService.Data.Models.ForecastData
+@{
+    var convertDate = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ccc;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+</style>
+
+<table>
+ 
+    <thead>
+    <th>Date</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Temperature</th>
+    <th>Humidity</th>
+    <th>Wind speed</th>
+    </thead>
+  
+    <tbody>
+    @foreach (var item in Model.List)
+    {
+
+
+        <tr>
+            <th>
+                @convertDate.AddSeconds(item.Dt)
+            </th>
+            <th>
+                @Model.City.Name 
+            </th>
+            <th>
+                @Model.City.Country
+            </th>
+            <th>
+                @item.Main.Temp
+            </th>
+           
+
+            <th>
+                @item.Main.Humidity
+            </th>
+            <th>
+                @item.Wind.Speed
+
+            </th>
+        </tr>
+    }
+    </tbody>
+</table>

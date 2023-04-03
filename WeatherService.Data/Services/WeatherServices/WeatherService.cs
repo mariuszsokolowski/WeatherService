@@ -11,7 +11,7 @@ namespace WeatherService.Data.Services.WeatherServices
 {
     public class WeatherService : IWeatherService
     {
-        private const string _baseURL = "https://api.openweathermap.org/data/2.5/weather";
+        private const string _baseURL = "https://api.openweathermap.org/data/2.5/forecast";
         private const string _api_key = "c84e3db78e3d22d53163b6021fd3797c";
         private readonly HttpClient _httpClient;
         private readonly ICityService _cityService;
@@ -21,28 +21,17 @@ namespace WeatherService.Data.Services.WeatherServices
             _cityService = cityService;
             _httpClient = new HttpClient();
         }
-        public async Task<WeatherApiResponseModel> Get(WeatherApiRequestModel weatherApiRequestModel)
+        public async Task<ForecastData> GetAsync(WeatherApiRequestModel weatherApiRequestModel)
         {
-            try
-            {
-                var url = $"{_baseURL}?q={weatherApiRequestModel.City}&appid={_api_key}&units={weatherApiRequestModel.TempType}";
-                var response = await _httpClient.GetFromJsonAsync<WeatherApiResponseModel>(url);
-
-                CityModel cityModel = new CityModel()
+                if(weatherApiRequestModel== null || weatherApiRequestModel.Cnt<=0 || string.IsNullOrEmpty(weatherApiRequestModel.City))
                 {
-                    Name = response.Name,
-                    CountryCode = response.Sys.Country
-                };
-
-                await _cityService.AddAsync(cityModel);
+                    throw new Exception("Parametrs cannot be null");
+                }
+                //Set URL
+                var url = $"{_baseURL}?q={weatherApiRequestModel.City}&appid={_api_key}&cnt={weatherApiRequestModel.Cnt}&units={weatherApiRequestModel.TempType}";
+                var response = await _httpClient.GetFromJsonAsync<ForecastData>(url);
+                await _cityService.AddAsync(new CityModel() { CountryCode = response.City.Country, Name = response.City.Name });
                 return response;
-
-            }
-            catch (Exception e)
-            {
-                var test = e.Message;
-            }
-            return null;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,42 +13,40 @@ namespace WeatherService.Data.Services.CityServices
     public class CityService : ICityService
     {
         private readonly DBContext _context;
-        public CityService(DBContext context)
+        private readonly IMapper _mapper;
+        public CityService(DBContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
         }
         public async Task<CityModel> AddAsync(CityModel model)
         {
             try
             {
-                City city = new City()
+                //Map CityModel to City
+                var city =_mapper.Map<Entities.City>(model);
+
+                //If city dosen't exist add to DB
+                if (!_context.City.Where(x => x.Name.ToLower() == city.Name.ToLower() && x.CountryCode.ToLower() == city.CountryCode.ToLower()).Any())
                 {
-                    CountryCode = model.CountryCode,
-                    Name = model.Name
-                };
-                await _context.City.AddAsync(city);
-                await _context.SaveChangesAsync();
+                    //Add new City to DB
+                    await _context.City.AddAsync(city);
+                    await _context.SaveChangesAsync();
+                }
             }
-            catch (Exception e)
+            // If catch -> will be validate by MSSQL index
+            catch 
             {
-                var msg = e.Message;
             }
             return model;
         }
 
-        /// <summary>
-        /// Get all cities from DB
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public async Task<List<CityModel>> GetAsync()
         {
+            //Get cities from DB
             var cities = await _context.City.ToListAsync();
-            List<CityModel> result = new List<CityModel>();
-            foreach (var item in cities)
-            {
-                result.Add(new CityModel { CountryCode = item.CountryCode, Name = item.Name });
-            }
+            //Map List<City> to List<CityModel>
+            var result = _mapper.Map<List<CityModel>>(cities);
             return result;
         }
     }

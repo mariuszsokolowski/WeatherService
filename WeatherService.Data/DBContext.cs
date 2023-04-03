@@ -13,7 +13,6 @@ namespace WeatherService.Data
         public DbSet<City> City { get; set; }
 
         public DBContext(DbContextOptions<DBContext> options) : base(options)
-
         {
         }
 

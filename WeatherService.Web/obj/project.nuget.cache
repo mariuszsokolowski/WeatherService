@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "koYQC22sZXNjmqjnZNwcVlAPN1N75ZQi/g9LAaP61GzUR2dQBZeD/b1TXC1LIdo1W86UC5jRwtWRd/v87hTxrQ==",
+  "dgSpecHash": "9EsWKW2tCZ8ASYv55KDhNjFBttn+MwM3nrl0DCzVSp65zYaMALzfyZJf7uyXGHVlifMBCA00cUisVw9Rf6QnzQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\msokolowski\\source\\repos\\WeatherService\\WeatherService.Web\\WeatherService.Web.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\msokolowski\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\msokolowski\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\msokolowski\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\msokolowski\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\msokolowski\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\msokolowski\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\msokolowski\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.15\\microsoft.entityframeworkcore.6.0.15.nupkg.sha512",

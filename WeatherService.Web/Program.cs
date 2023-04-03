@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WeatherService.Data;
+using WeatherService.Data.Automapper;
 using WeatherService.Data.Services.CityServices;
 using WeatherService.Data.Services.WeatherServices;
 
@@ -11,10 +12,17 @@ builder.Services.AddControllersWithViews();
 //Get ConfigruationManger for JSON in appsettings.json
 ConfigurationManager configuration = builder.Configuration;
 
+//TODO: change default connection to userSercret
 //Set DBContext for application
 builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-//Add DI to application
+//Add automapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(typeof(CityProfile));
+
+
+//TODO: Change DI to Autofac
+//Add DI to applicationA
 builder.Services.AddTransient<IWeatherService, WeatherService.Data.Services.WeatherServices.WeatherService>();
 builder.Services.AddTransient<ICityService, CityService>();
 

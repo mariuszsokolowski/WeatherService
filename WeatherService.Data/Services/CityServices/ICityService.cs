@@ -11,13 +11,13 @@ namespace WeatherService.Data.Services.CityServices
     {
 
         /// <summary>
-        /// Get all cities in DB
+        /// Get all cities from DB
         /// </summary>
         /// <returns></returns>
         public Task<List<CityModel>> GetAsync();
 
         /// <summary>
-        /// Add city to DB
+        /// Add city to DB if not exist
         /// </summary>
         /// <returns></returns>
         public Task<CityModel> AddAsync(CityModel model);

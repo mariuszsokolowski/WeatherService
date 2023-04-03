@@ -1,8 +1,55 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "HomePage";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="input-group mb-3">
+    <select name="TempType" id="TempType" class="form-control">
+    <option value="imperial">Fahrenheit </option>
+    <option value="metric">Celsius </option>
+    <option value="standard ">Kelvin </option>
+</select>
+    <input type="text" class="form-control" name="City" placeholder="City" value="London" id="City" list="Cities" />
+    <input type="number" class="form-control" name="Cnt" placeholder="3 hours interval" value="6" id="Cnt" />
+
+<datalist id="Cities">
+    @foreach (var item in ViewBag.Cities)
+    {
+        <option>@item.Name</option>
+    }
+</datalist>
+    <button onclick="GetData()" class="btn btn-primary">Check forecast</button>
 </div>
+
+<div id="partialViewContainer"></div>
+
+
+<script>
+    function GetData() {
+        //Set variables from html
+        var tempType = $("#TempType").val();
+        var city = $("#City").val();
+        var cnt = $("#Cnt").val();
+        if (tempType.length == 0 || city.length==0 || cnt==0)
+        {
+            alert('All parameters must have a value');
+            return;
+        }
+
+        //Get forecast from API
+        $.ajax({
+            url: '@Url.Action("FetchWeatherData", "Home")',
+            type: 'POST',
+            data: { City: city, TempType: tempType, Cnt: cnt },
+            success: function (result) {
+                $("#partialViewContainer").html(result);
+            },
+            error: function (xhr, status, error) {
+                alert(xhr.responseText);
+        }
+        });
+    }
+</script>
+
+
+
