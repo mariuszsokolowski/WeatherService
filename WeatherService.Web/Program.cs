@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WeatherService.Data;
+using WeatherService.Data.Services.CityServices;
+using WeatherService.Data.Services.WeatherServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,11 @@ ConfigurationManager configuration = builder.Configuration;
 
 //Set DBContext for application
 builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+//Add DI to application
+builder.Services.AddTransient<IWeatherService, WeatherService.Data.Services.WeatherServices.WeatherService>();
+builder.Services.AddTransient<ICityService, CityService>();
+
 
 var app = builder.Build();
 
