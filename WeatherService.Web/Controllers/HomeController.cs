@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WeatherService.Data;
 using WeatherService.Web.Models;
 
 namespace WeatherService.Web.Controllers

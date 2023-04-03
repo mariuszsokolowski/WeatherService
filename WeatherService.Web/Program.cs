@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using WeatherService.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Get ConfigruationManger for JSON in appsettings.json
+ConfigurationManager configuration = builder.Configuration;
+
+//Set DBContext for application
+builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

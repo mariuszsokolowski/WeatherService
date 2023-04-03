@@ -1,0 +1,12 @@
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\bin\Debug\net6.0\WeatherService.Data.deps.json
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\bin\Debug\net6.0\WeatherService.Data.dll
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\bin\Debug\net6.0\WeatherService.Data.pdb
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\obj\Debug\net6.0\WeatherService.Data.csproj.AssemblyReference.cache
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\obj\Debug\net6.0\WeatherService.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\obj\Debug\net6.0\WeatherService.Data.AssemblyInfoInputs.cache
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\obj\Debug\net6.0\WeatherService.Data.AssemblyInfo.cs
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\obj\Debug\net6.0\WeatherService.Data.csproj.CoreCompileInputs.cache
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\obj\Debug\net6.0\WeatherService.Data.dll
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\obj\Debug\net6.0\refint\WeatherService.Data.dll
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\obj\Debug\net6.0\WeatherService.Data.pdb
+C:\Users\msokolowski\source\repos\WeatherService\WeatherService.Data\obj\Debug\net6.0\ref\WeatherService.Data.dll
